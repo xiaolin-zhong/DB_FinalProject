@@ -1,0 +1,175 @@
+/*
+Author: Xiao Lin;
+Theme: Car Rental;
+Version: 1.0;
+*/
+*{
+    margin: 0 0;
+    padding: 0 0;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}
+.container{
+    width: 80%;
+    margin: 0 auto;
+    padding: 1%;
+}
+
+.text-right{
+    text-align: right;
+}
+
+.text-center{
+    text-align: center;
+}
+
+.img-responsive{
+    width: 100%;
+}
+
+.img-curve{
+    border-radius: 5px;
+}
+
+.clearfix{
+    clear: both;
+    float: none;
+}
+
+a{
+    color: #457b9d;
+    text-decoration: none;
+}
+
+a:hover{
+    color: #a8dadc;
+}
+
+.button{
+    padding: 1%;
+    font-size: 1rem;
+    border-radius: 6px;
+}
+
+.button-primary{
+    background-color: #457b9d;
+    color: #f1faee;
+    cursor: pointer;
+}
+
+.button-primary:hover{
+    background-color: #a8dadc;
+    color: #1d3557;
+}
+
+h2{
+    color: #1d3557;
+    font-size: 1.5rem;
+}
+
+.float-container{
+    position: relative;
+}
+
+.float-text{
+    position: absolute;
+    bottom: 10px;
+    left: 33%;
+    color: #f1faee;
+}
+
+h3{
+    font-size: 1rem;
+}
+/* CSS for Navbar Section */
+.logo{
+    width: 12%;   
+    float: left;
+}
+
+.menu{
+    line-height: 60px;
+}
+
+.menu ul{
+    list-style-type: none;
+}
+
+.menu ul li{
+    display: inline;
+    padding: 1.5%;
+    font-weight: bold;
+}
+
+/* CSS for Vehicle Search */
+.vehicle-search{
+    background-image: url(../images/background.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 7% 0;
+}
+
+.vehicle-search input[type="search"]{
+    width: 50%;
+    padding: 1%;
+    font-size: 1rem;
+    border-radius: 5px;
+}
+
+/* CSS for Vehicles*/
+.vehicles-menu{
+    background-color: #a8dadc;
+    padding: 2% 0;
+}
+
+.box-vehicles{
+    width: 45%;
+    margin: 1%;
+    float: left;
+    padding: 1%;
+    left: 15px;
+    background-color: white;
+    border-radius: 15px;
+}
+
+.vehicles-menu-img{
+    float: left;
+}
+
+.vehicles-menu-desc{
+    width: 70%;
+    float: left;
+    margin-left: 38%;
+}
+
+.vehicles-price{
+    font-size: 1rem;
+    margin: 1% 0;
+}
+
+.vehicle-detail{
+    font-size: 0.7rem;
+    color: #6b705c;
+}
+
+/* CSS for Categories */
+.categories{
+    padding: 1% 0;
+}
+
+.box-3{
+    width: 30%;
+    float: left;
+    margin: 1%;
+    left: 10px;
+}
+
+/* CSS for Social */
+.social ul{
+    list-style-type: none;
+}
+
+.social ul li {
+    display: inline;
+    padding: 0.5%;
+}
