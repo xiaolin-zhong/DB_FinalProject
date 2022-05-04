@@ -4,6 +4,14 @@
     <div class="container">
         <h1>Add Admin</h1>
 
+        <br><br>
+        <?php
+            if(isset($_SESSION['add'])) {
+                echo $_SESSION['add'];
+                unset($_SESSION['add']);
+            }
+        ?>
+
         <form action="" method="POST"> 
             <table class="table-40">
 
@@ -59,14 +67,24 @@
                     a_username = '$a_username',
                     a_password = '$a_password'
                 ";
-
-        //Execute query and save into database
-        //Database connection:
-        $CONN= mysqli_connect('localhost', 'root', '') or die(mysqli_error($db));
-        //Select database:
-        $DB_SELECT = mysqli_select_db($CONN,'xz3343vc2124mka7840') or die(mysqli_error($db));
         
+        //Execute SQL and save to database
         $RES = mysqli_query($CONN, $SQL) or die(mysqli_error($db));
+
+        //Check whether it has been inserted
+        if($RES) {
+            //echo "Data inserted";
+            $_SESSION['add'] = "Admin added successfully.";
+
+            header("location:".SITEURL.'admin/man_admin.php');
+
+        }
+        else {
+            //echo "Data insertion failed";
+            $_SESSION['add'] = "Failed to add admin.";
+
+            header("location:".SITEURL.'admin/add_admin.php');
+        }
     }
 
 ?>
