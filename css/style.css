@@ -3,15 +3,22 @@ Author: Xiao Lin;
 Theme: Car Rental;
 Version: 1.0;
 */
+
 *{
     margin: 0 0;
     padding: 0 0;
     font-family:Georgia, 'Times New Roman', Times, serif;
 }
+
+.clearfix{
+    clear: both;
+    float: none;
+}
+
 .container{
+    padding: 1%;
     width: 80%;
     margin: 0 auto;
-    padding: 1%;
 }
 
 .text-right{
@@ -26,22 +33,13 @@ Version: 1.0;
     width: 100%;
 }
 
-.img-curve{
-    border-radius: 5px;
-}
-
-.clearfix{
-    clear: both;
-    float: none;
-}
-
 a{
-    color: #457b9d;
+    color: #7f5539;
     text-decoration: none;
 }
 
 a:hover{
-    color: #a8dadc;
+    color: #b08968;
 }
 
 .button{
@@ -51,18 +49,29 @@ a:hover{
 }
 
 .button-primary{
-    background-color: #457b9d;
+    background-color: #7f5539;
     color: #f1faee;
     cursor: pointer;
 }
 
 .button-primary:hover{
-    background-color: #a8dadc;
-    color: #1d3557;
+    background-color: #b08968;
+    color: #ede0d4;
+}
+
+.button-secondary{
+    background-color: #e6ccb2;
+    color: #7f5539;
+    cursor: pointer;
+}
+
+.button-secondary:hover{
+    background-color: #ede0d4;
+    color: #7f5539;
 }
 
 h2{
-    color: #1d3557;
+    color: #7f5539;
     font-size: 1.5rem;
 }
 
@@ -77,10 +86,28 @@ h2{
     color: #f1faee;
 }
 
-h3{
-    font-size: 1rem;
+.table-full{
+    width: 100%;
 }
-/* CSS for Navbar Section */
+
+table tr th{
+    border-bottom: 1px solid black;
+    padding: 1%;
+}
+
+table tr td{
+    text-align: center;
+    padding: 1%;
+}
+
+.table-40{
+    width: 40%;
+}
+
+/* CSS for Navigation Bar */
+.nav_bar{
+    background-color: #ffffff;
+}
 .nav_logo{
     width: 12%;   
     float: left;
@@ -100,7 +127,8 @@ h3{
     font-weight: bold;
 }
 
-/* CSS for Vehicle Search */
+/* CSS for Search Bar*/
+
 .veh_search{
     background-image: url(../images/background.jpg);
     background-size: cover;
@@ -116,9 +144,9 @@ h3{
     border-radius: 5px;
 }
 
-/* CSS for Vehicles*/
+/* CSS for Vehicles */
 .veh_menu{
-    background-color: #a8dadc;
+    background-color: #ede0d4;
     padding: 2% 0;
 }
 
@@ -128,7 +156,6 @@ h3{
     float: left;
     padding: 1%;
     left: 15px;
-    background-color: white;
     border-radius: 15px;
 }
 
@@ -152,7 +179,7 @@ h3{
     color: #6b705c;
 }
 
-/* CSS for Categories */
+/* CSS for Locations */
 .loc_menu{
     padding: 1% 0;
 }
@@ -172,4 +199,9 @@ h3{
 .soc_menu ul li {
     display: inline;
     padding: 0.5%;
+}
+
+/* CSS for Footer */
+.footer{
+    background-color: #ede0d4;
 }
