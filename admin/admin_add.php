@@ -1,6 +1,6 @@
 <?php include('partials/nav_bar.php'); ?>
 
-<div class="add_admin">
+<div class="admin_add">
     <div class="container">
         <h1>Add Admin</h1>
 
@@ -50,7 +50,7 @@
 
     if(isset($_POST['submit'])) {
         //Button clicked
-        echo "Admin created.";
+        //echo "Admin created.";
 
         //Get data from the form
         $a_fname = $_POST['a_fname'];
