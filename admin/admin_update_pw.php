@@ -16,10 +16,11 @@
                     <td>Password</td>
                     <td><input type ="password" name="curr_password" placeholder="Password"></td>
                 </tr>
+
                 <tr>
                     <td>New Password</td>
                     <td><input type ="password" name="new_password" placeholder="New Password"></td>
-                </tr> 
+                </tr>
 
                 <tr>
                     <td>Confirm Password</td>
