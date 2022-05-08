@@ -1,4 +1,6 @@
-<?php include('../config/constants.php') ?>
+<?php include('../config/constants.php');
+    include('login_check.php');
+?>
 
 <html>
     <head>
@@ -23,13 +25,13 @@
                             <a href="home.php">Home</a>
                         </li>
                         <li>
-                            <a href="man_veh.php">Rent</a>
-                        </li>
-                        <li>
-                            <a href="login.php">Login</a>
+                            <a href="man_veh.php">Vehicles</a>
                         </li>
                         <li>
                             <a href="man_admin.php">Admin</a>
+                        </li>
+                        <li>
+                            <a href="logout.php">Logout</a>
                         </li>
                     </ul>
                 </div>

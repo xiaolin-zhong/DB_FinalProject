@@ -47,11 +47,11 @@
                 </tr>
                 <tr>
                     <td>Last Name</td>
-                    <td><input type="text" name="a_fname" value="<?php echo $a_lname;?>"><td>
+                    <td><input type="text" name="a_lname" value="<?php echo $a_lname;?>"><td>
                 </tr>
                 <tr>
                     <td>Username</td>
-                    <td><input type="text" name="a_fname" value="<?php echo $a_username;?>"><td>
+                    <td><input type="text" name="a_username" value="<?php echo $a_username;?>"><td>
                 </tr>
                 <tr>
                     <td>Password</td>
@@ -80,10 +80,12 @@
 
         //SQL query to update admin
         $SQL = "UPDATE mvx_admin
-                SET a_fname = $a_fname,
-                    a_lname = $a_lname,
-                    a_username = $a_username
-                WHERE a_id = $a_id";
+                SET a_fname = '$a_fname',
+                    a_lname = '$a_lname',
+                    a_username = '$a_username'
+                WHERE a_id = '$a_id'";
+        
+        $RES = mysqli_query($CONN,$SQL);
 
         //Check the query if executed successfully
         if($RES==TRUE) {

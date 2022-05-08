@@ -22,14 +22,14 @@
                         unset($_SESSION['update']);
                     }
 
-                    if(isset($_SESSION['user_not_found'])) {
-                        echo $_SESSION['user_not_found'];
-                        unset($_SESSION['user_not_found']);
+                    if(isset($_SESSION['currpw_not_match'])) {
+                        echo $_SESSION['currpw_not_match'];
+                        unset($_SESSION['currpw_not_match']);
                     }
 
-                    if(isset($_SESSION['password_not_match'])) {
-                        echo $_SESSION['password_not_match'];
-                        unset($_SESSION['password_not_match']);
+                    if(isset($_SESSION['newconf_not_match'])) {
+                        echo $_SESSION['newconf_not_match'];
+                        unset($_SESSION['newconf_not_match']);
                     }
 
                     if(isset($_SESSION['password_updated'])) {

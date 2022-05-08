@@ -7,7 +7,9 @@
         <br><br>
 
         <?php 
-            $a_id = $_GET['a_id'];
+            if(isset($_GET['a_id'])) {
+                $a_id = $_GET['a_id'];
+            }
         ?>
 
         <form action="" method="POST">
@@ -60,6 +62,7 @@
             //Check if data is available
             $COUNT = mysqli_num_rows($RES);
 
+            //If current password matches the database, user exists.
             if($COUNT==1) {
                 echo "User found";
                 //Check if the new and confirm password matches
@@ -83,13 +86,13 @@
 
                 }
                 else {
-                    $_SESSION['password_not_match'] = "Password did not match.";
+                    $_SESSION['newconf_not_match'] = "New password and confirm password did not match.";
                     header("location:".SITEURL.'admin/man_admin.php');
                 }
 
             }
             else {
-                $_SESSION['user_not_found'] = "User not found.";
+                $_SESSION['currpw_not_match'] = "Current password is incorrect. Password did not update.";
                 header("location:".SITEURL.'admin/man_admin.php');
             }
         }
