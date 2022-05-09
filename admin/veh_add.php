@@ -40,13 +40,9 @@
                     <td><input type="number" name="v_rentrate" placeholder="Rent Rate"><td>
                 </tr>
                 <tr>
-                    <td>Over Mileage Fee</td>
-                    <td><input type="number" name="v_ofee" placeholder="Over Mileage Fee"><td>
-                </tr>
-                <tr>
                     <td>Class</td>
                     <td>
-                        <select name="v_class">
+                        <select name="vc_class">
 
                             <?php
                                 //Display vehicle classes from database.
@@ -101,8 +97,7 @@
                 $v_year = $_POST['v_year'];
                 $v_licensepl = $_POST['v_licensepl'];
                 $v_rentrate = $_POST['v_rentrate'];
-                $v_ofee = $_POST['v_ofee'];
-                $vc_class = $_POST['vc_class'];
+                //$vc_class = $_POST['vc_class'];
 
                 //Upload the image
                 //Check if Choose File has been clicked on
@@ -112,13 +107,14 @@
                     //Check if an image has been uploaded
                     if($v_image != "") {
                         //Rename image (.JPG, .PNG, GIF)
-                        $EXT = end(explode('.', $v_image));
+                        $EXT = explode('.', $v_image);
+                        $EXT = end($EXT);
                         $v_image = "Vehicle_".rand(0000,9999).".".$EXT;
                         //Source path
                         $SRC = $_FILES['image']['tmp_name'];
 
                         //Destination
-                        $DST = "../images/vehicles".$v_image;
+                        $DST = "../images/vehicles/".$v_image;
                         
                         //Upload
                         $UPLOAD = move_uploaded_file($SRC, $DST);
@@ -138,16 +134,25 @@
 
                 //Insert the data into the database
                 $SQL2 = "INSERT INTO mvx_vehicle SET
-                         v_vin = '$v_vin,
+                         v_vin = '$v_vin',
                          v_make = '$v_make',
                          v_model = '$v_model',
                          v_year = $v_year,
                          v_licensepl = '$v_licensepl',
                          v_rentrate = $v_rentrate,
-                         v_ofee = $v_ofee,
                          v_image = '$v_image'";
 
+                $RES2 = mysqli_query($CONN, $SQL2);
+                
                 //Redirect to manage vehicle page
+                if($RES2==TRUE) {
+                        $_SESSION['add'] = "Vehicle was successfully added.";
+                        header('location:'.SITEURL.'admin/man_veh.php');
+                }
+                else {
+                    $_SESSION['add'] = "Failed to add vehicle.";
+                        header('location:'.SITEURL.'admin/man_veh.php');
+                }
 
             }
 
