@@ -1,12 +1,12 @@
 <?php include('partials/nav_bar.php'); ?>
 
     <!-- Vehicles Available -->
-        <div class="admin">
+        <div class="man_veh">
             <div class="container">
                 <h1>Manage Vehicles</h1>
 
                 <br/>
-                <a href="add-veh.php" class="button button-primary">Add Vehicle</a>
+                <a href="<?php echo SITEURL;?>admin/veh_add.php" class="button button-primary">Add Vehicle</a>
                 <br/><br/>
 
                 <table class="table-full">

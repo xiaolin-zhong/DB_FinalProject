@@ -1,1 +1,1 @@
-# Spring 2022 CSGY6083_FinalProject
+# Spring 2022 CSGY6083_Project
