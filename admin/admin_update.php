@@ -5,12 +5,10 @@
         <h1>Update Admin</h1>
 
         <?php
-            //include('../config/constants.php');
-
-            // Get the a_id of the admin we are deleting
+            // Get the a_id
             $a_id = $_GET['a_id'];
 
-            // SQL query to delete admin
+            // SQL query 
             $SQL = "SELECT *
                     FROM mvx_admin
                     WHERE a_id = $a_id";
@@ -20,7 +18,6 @@
 
             // Actions after the query
             if($RES==TRUE) {
-                //echo "Admin deleted"
                 $COUNT = mysqli_num_rows($RES);
 
                 if ($COUNT==1) {
@@ -34,7 +31,6 @@
                     header('location:'.SITEURL.'admin/man_admin.php');
                 }
             }
-
         ?>
 
         <form action="" method="POST"> 

@@ -42,8 +42,6 @@
     </div>
 </div>
 
-<?php include('partials/footer.php'); ?>
-
 <?php
     //Process the value from form and save to database.
     //Check whether the submit button is clicked or not.
@@ -88,3 +86,5 @@
     }
 
 ?>
+
+<?php include('partials/footer.php'); ?>

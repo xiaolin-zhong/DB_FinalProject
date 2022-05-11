@@ -28,6 +28,12 @@
                             <a href="man_veh.php">Vehicles</a>
                         </li>
                         <li>
+                            <a href="man_rent.php">Rentals</a>
+                        </li>
+                        <li>
+                            <a href="man_cust.php">Customers</a>
+                        </li>
+                        <li>
                             <a href="man_admin.php">Admin</a>
                         </li>
                         <li>

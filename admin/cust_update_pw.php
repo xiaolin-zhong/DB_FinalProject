@@ -2,23 +2,18 @@
 
 <div class="admin_update_pw">
     <div class="container">
-        <h1>Change Admin Password</h1>
+        <h1>Change Customer Password</h1>
 
         <br><br>
 
         <?php 
-            if(isset($_GET['a_id'])) {
-                $a_id = $_GET['a_id'];
+            if(isset($_GET['c_id'])) {
+                $c_id = $_GET['c_id'];
             }
         ?>
 
         <form action="" method="POST">
             <table classs="table-40">
-                <tr>
-                    <td>Password</td>
-                    <td><input type ="password" name="curr_password" placeholder="Password"></td>
-                </tr>
-
                 <tr>
                     <td>New Password</td>
                     <td><input type ="password" name="new_password" placeholder="New Password"></td>
@@ -31,8 +26,8 @@
 
                 <tr>
                     <td colspan="2">
-                        <input type ="hidden" name="a_id" value="<?php echo $a_id; ?>">
-                        <input type="submit" name="submit" value="change password" class="button button-secondary">
+                        <input type ="hidden" name="c_id" value="<?php echo $c_id; ?>">
+                        <input type="submit" name="submit" value="change customer password" class="button button-secondary">
                     </td>
                 </tr>
             </table>
@@ -45,16 +40,14 @@
     if(isset($_POST['submit'])) {
 
         //Get the data from the form
-        $a_id = $_POST['a_id'];
-        $curr_password = md5($_POST['curr_password']);
+        $c_id = $_POST['c_id'];
         $new_password = md5($_POST['new_password']);
         $conf_password = md5($_POST['conf_password']);
 
         //Check if the user with the current ID and PW exists
         $SQL = "SELECT *
-                FROM mvx_admin
-                WHERE a_id = $a_id
-                    AND a_password = '$curr_password'";
+                FROM mvx_customer
+                WHERE c_id = '$c_id'";
         
         $RES = mysqli_query($CONN, $SQL);
 
@@ -64,39 +57,35 @@
 
             //If current password matches the database, user exists.
             if($COUNT==1) {
-                echo "User found";
+                //echo "User found";
                 //Check if the new and confirm password matches
                 if($new_password == $conf_password) {
                     //Set new password
-                    $SQL2 = "UPDATE mvx_admin
-                             SET a_password = '$new_password'
-                             WHERE a_id = $a_id";
+                    echo "here";
+                    $SQL2 = "UPDATE mvx_customer
+                             SET c_password = '$new_password'
+                             WHERE c_id = $c_id";
                     //Execute query
                     $RES2 = mysqli_query($CONN, $SQL2);
                     //Check for execution
                     if($RES2==TRUE) {
                         //Update password if above checks pass
                         $_SESSION['password_updated'] = "Password successfully updated.";
-                        header("location:".SITEURL.'admin/man_admin.php');
+                        header("location:".SITEURL.'admin/man_cust.php');
                     }
                     else {
                         $_SESSION['password_updated'] = "Password failed to be updated.";
-                        header("location:".SITEURL.'admin/man_admin.php');
+                        header("location:".SITEURL.'admin/man_cust.php');
                     }
 
                 }
                 else {
                     $_SESSION['newconf_not_match'] = "New password and confirm password did not match.";
-                    header("location:".SITEURL.'admin/man_admin.php');
+                    header("location:".SITEURL.'admin/man_cust.php');
                 }
 
             }
-            else {
-                $_SESSION['currpw_not_match'] = "Current password is incorrect. Password did not update.";
-                header("location:".SITEURL.'admin/man_admin.php');
-            }
         }
-
     }
 ?>
 

@@ -37,7 +37,7 @@
                         unset($_SESSION['password_updated']);
                     }
                 ?>
-                <br/><br/>
+                <br/>
                 <a href="admin_add.php" class="button button-primary">Add Admin</a>
                 <br/><br/>
 
@@ -94,6 +94,7 @@
 
                         }
                     ?>
+                </table>
                 <?php 
                     // If session successful, show success message.
                     if(isset($_SESSION['add'])) {

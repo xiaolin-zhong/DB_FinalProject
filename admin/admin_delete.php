@@ -16,11 +16,11 @@
     // Actions after the query
     if($RES==TRUE) {
         //echo "Admin deleted"
-        $_SESSION['delete'] = "Admin deleted sucessfully.";
+        $_SESSION['delete'] = "Admin deleted successfully.";
         header('location:'.SITEURL.'admin/man_admin.php');
     }
     else {
-        $_SESSION['delete'] = "Admin failed to delete.";
+        $_SESSION['delete'] = "Admin failed to be deleted.";
         header('location:'.SITEURL.'admin/man_admin.php');
     }
 

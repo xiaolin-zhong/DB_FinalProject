@@ -1,11 +1,11 @@
 <?php include('partials/nav_bar.php'); ?>
 
-    <!-- Vehicles Available -->
+    <!-- Vehicles -->
         <div class="man_veh">
             <div class="container">
                 <h1>Manage Vehicles</h1>
 
-                <br/>
+                <br/><br/>
                 <a href="<?php echo SITEURL;?>admin/veh_add.php" class="button button-primary">Add Vehicle</a>
                 <br/><br/>
 
@@ -13,6 +13,14 @@
                     if(isset($_SESSION['add'])) {
                         echo $_SESSION['add'];
                         unset($_SESSION['add']);
+                    }
+                    if(isset($_SESSION['delete'])) {
+                        echo $_SESSION['delete'];
+                        unset($_SESSION['delete']);
+                    }
+                    if(isset($_SESSION['upload'])) {
+                        echo $_SESSION['upload'];
+                        unset($_SESSION['upload']);
                     }
                 ?>
 
@@ -70,8 +78,8 @@
                                         ?>
                                     </td>
                                     <td>
-                                        <a href="#" class="button button-secondary">Update Vehicle</a>
-                                        <a href="#" class="button button-secondary">Delete Vehicle</a>
+                                        <a href="<?php echo SITEURL;?>admin/veh_update.php?v_vin=<?php echo $v_vin;?>" class="button button-secondary">Update Vehicle</a>
+                                        <a href="<?php echo SITEURL;?>admin/veh_delete.php?v_vin=<?php echo $v_vin;?>&v_image=<?php echo $v_image; ?>" class="button button-secondary">Delete Vehicle</a>
                                     </td>
                                 </tr>
 
