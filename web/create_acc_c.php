@@ -1,4 +1,4 @@
-<?php include('partials/nav_bar.php'); ?>
+<?php include('partials_front/nav_bar.php');?>
 
 <div class="cust_add">
     <div class="container">
@@ -53,7 +53,7 @@
                 </tr>
                 <tr>
                     <td colspan="2">
-                        <input type="submit" name="submit" value="create individual customer" class="button button-secondary">
+                        <input type="submit" name="submit" value="create individual customer" class="btn btn-primary">
                     </td>
                 </tr>
             </table>
@@ -123,17 +123,17 @@
             //echo "Data inserted";
             $_SESSION['add'] = "Corporate added successfully.";
 
-            header("location:".SITEURL.'admin/man_cust.php');
+            header("location:".SITEURL);
 
         }
         else {
             //echo "Data insertion failed";
             $_SESSION['add'] = "Failed to add corporate.";
 
-            header("location:".SITEURL.'admin/man_cust.php');
+            header("location:".SITEURL.'create_acc_c.php');
         }
     }
 
 ?>
 
-<?php include('partials/footer.php'); ?>
+<?php include('partials_front/footer.php')?>

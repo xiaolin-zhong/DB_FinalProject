@@ -22,9 +22,6 @@
                 <div class="nav_menu text-right">
                     <ul>
                         <li>
-                            <a href="home.php">Home</a>
-                        </li>
-                        <li>
                             <a href="man_veh.php">Vehicles</a>
                         </li>
                         <li>

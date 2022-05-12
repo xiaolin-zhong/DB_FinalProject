@@ -83,7 +83,7 @@
         if($COUNT==1) {
             //If username and password exists
             $_SESSION['login'] = $a_username;
-            header('location:'.SITEURL.'admin/');
+            header('location:'.SITEURL.'admin/man_admin.php');
         }
         else {
             //If username and password does not exist

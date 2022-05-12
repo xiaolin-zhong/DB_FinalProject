@@ -3,7 +3,7 @@
     //Start session
     session_start();
 
-    define('SITEURL','http://localhost/6083_project/');
+    define('SITEURL','http://localhost/6083_project/web/');
     define('LOCALHOST', 'localhost');
     define('DB_USERNAME', 'root');
     define('DB_PASSWORD', '');

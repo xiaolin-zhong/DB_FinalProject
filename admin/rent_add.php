@@ -37,6 +37,42 @@
                     <td>Limit Odometer</td>
                     <td><input type="number" name="r_limitodo" placeholder="Limit Odometer"><td>
                 </tr>
+
+                <tr>
+                    <td>Customer</td>
+                    <td>
+                        <select name="c_id">
+
+                            <?php
+                                //Display vehicle classes from database.
+                                $SQL = "SELECT *
+                                        FROM mvx_customer";
+
+                                $RES = mysqli_query($CONN, $SQL);
+
+                                $COUNT = mysqli_num_rows($RES);
+
+                                if($COUNT>0) {
+                                    //While loop to get the class values
+                                    while($ROW = mysqli_fetch_assoc($RES)) {
+                                        $c_id = $ROW['c_id'];
+                                        $c_email = $ROW['c_email'];
+                                        ?>
+                                        
+                                        <option value="<?php echo $c_id;?>"><?php echo "ID: "; echo $c_id; echo "  "; echo "email: ";echo $c_email;?></option>
+
+                                        <?php
+                                    }
+                                }
+                                else {
+                                    ?>
+                                    <option value="0">None</option>
+                                    <?php
+                                }
+                            ?>
+                        </select>
+                    <td>
+                </tr>
                 <tr>
                     <td colspan="2">
                         <input type="submit" name="submit" value="create rent" class="button button-secondary">
@@ -54,7 +90,7 @@
     if(isset($_POST['submit'])) {
         //Button clicked
         //echo "Admin created.";
-
+        ob_start();
         //Get data from the form
         $r_pickuploc = $_POST['r_pickuploc'];
         $r_droploc = $_POST['r_droploc'];
@@ -65,6 +101,7 @@
         $r_limitodo = $_POST['r_limitodo'];
         $r_pickupdate = date('Y-m-d', strtotime($r_pickupdate));
         $r_dropdate = date('Y-m-d', strtotime($r_dropdate));
+        $c_id = $_POST['c_id'];
 
         //SQL query from the form
         //SET column name = form name
@@ -74,8 +111,9 @@
                     r_pickupdate = '$r_pickupdate',
                     r_dropdate = '$r_dropdate',
                     r_startodo = $r_startodo,
-                    r_endodo = $r_endodo,
-                    r_limitodo = $r_limitodo
+                    r_endodo = '$r_endodo',
+                    r_limitodo = '$r_limitodo',
+                    c_id = $c_id
                 ";
         
         //Execute SQL and save to database
@@ -91,7 +129,7 @@
         }
         else {
             //echo "Data insertion failed";
-            $_SESSION['add'] = "Rental to add admin.";
+            $_SESSION['add'] = "Rental failed to be added.";
 
             header("location:".SITEURL.'admin/add_rent.php');
         }

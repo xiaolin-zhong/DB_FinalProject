@@ -111,6 +111,7 @@
                         $EXT = end($EXT);
                         $v_image = "Vehicle_".rand(0000,9999).".".$EXT;
                         //Source path
+
                         $SRC = $_FILES['image']['tmp_name'];
 
                         //Destination

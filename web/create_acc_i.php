@@ -1,8 +1,8 @@
-<?php include('partials/nav_bar.php'); ?>
+<?php include('partials_front/nav_bar.php');?>
 
-<div class="cust_add">
+<div class="admin_add">
     <div class="container">
-        <h1>Add Corporate Customer</h1>
+        <h1>Add Individual Customer</h1>
 
         <br><br>
         <?php
@@ -16,16 +16,24 @@
 
             <br/><br/>
                 <tr>
-                    <td>Corporate Name</td>
-                    <td><input type="text" name="co_name" placeholder="Corporate Name"><td>
+                    <td>First Name</td>
+                    <td><input type="text" name="in_fname" placeholder="First Name"><td>
                 </tr>
                 <tr>
-                    <td>Registration No</td>
-                    <td><input type="number" name="co_regisno" placeholder="Registration No"><td>
+                    <td>Last Name</td>
+                    <td><input type="text" name="in_lname" placeholder="Last Name"><td>
                 </tr>
                 <tr>
-                    <td>Employee ID</td>
-                    <td><input type="number" name="co_empid" placeholder="Employee ID"><td>
+                    <td>License No</td>
+                    <td><input type="text" name="in_licenseno" placeholder="License No"><td>
+                </tr>
+                <tr>
+                    <td>Insurance Name</td>
+                    <td><input type="text" name="in_insurname" placeholder="Insurance Name"><td>
+                </tr>
+                <tr>
+                    <td>Insurance No</td>
+                    <td><input type="number" name="in_insurno" placeholder="Insurnace No"><td>
                 </tr>
                 <tr>
                     <td>Address Line 1</td>
@@ -53,7 +61,7 @@
                 </tr>
                 <tr>
                     <td colspan="2">
-                        <input type="submit" name="submit" value="create individual customer" class="button button-secondary">
+                        <input type="submit" name="submit" value="create individual customer" class="btn btn-primary">
                     </td>
                 </tr>
             </table>
@@ -70,15 +78,17 @@
         //echo "Admin created.";
 
         //Get data from the form
-        $co_name = $_POST['co_name'];
-        $co_regisno = $_POST['co_regisno'];
-        $co_empid = $_POST['co_empid'];
+        $in_fname = $_POST['in_fname'];
+        $in_lname = $_POST['in_lname'];
+        $in_licenseno = $_POST['in_licenseno'];
+        $in_insurname = $_POST['in_insurname'];
+        $in_insurno = $_POST['in_insurno'];
         $c_addline1 = $_POST['c_addline1'];
         $c_addline2 = $_POST['c_addline2'];
         $c_zip = $_POST['c_zip'];
         $c_phone = $_POST['c_phone'];
         $c_email = $_POST['c_email'];
-        $c_type = 'C';
+        $c_type = 'I';
         //Pass encryption with MD5
         $c_password = md5($_POST['c_password']);
 
@@ -108,11 +118,13 @@
 
         //SQL query from the form
         //SET column name = form name
-        $SQL2 = "INSERT INTO mvx_corporate
+        $SQL2 = "INSERT INTO mvx_individual
                 SET c_id = $c_id,
-                    co_name = '$co_name',
-                    co_regisno = $co_regisno,
-                    co_empid = $co_empid
+                    in_fname = '$in_fname',
+                    in_lname = '$in_lname',
+                    in_licenseno = '$in_licenseno',
+                    in_insurname = '$in_insurname',
+                    in_insurno = '$in_insurno'
                 ";
         
         //Execute SQL and save to database
@@ -121,14 +133,14 @@
         //Check whether it has been inserted
         if($RES==TRUE && $RES2==TRUE) {
             //echo "Data inserted";
-            $_SESSION['add'] = "Corporate added successfully.";
+            $_SESSION['add'] = "Individual added successfully.";
 
             header("location:".SITEURL.'admin/man_cust.php');
 
         }
         else {
             //echo "Data insertion failed";
-            $_SESSION['add'] = "Failed to add corporate.";
+            $_SESSION['add'] = "Failed to add individual.";
 
             header("location:".SITEURL.'admin/man_cust.php');
         }
@@ -136,4 +148,4 @@
 
 ?>
 
-<?php include('partials/footer.php'); ?>
+<?php include('partials_front/footer.php')?>

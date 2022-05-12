@@ -1,6 +1,6 @@
 <?php include('partials/nav_bar.php'); ?>
 
-<div class="admin_update">
+<div class="cust_update">
     <div class="container">
         <h1>Update Individual Customer</h1>
 

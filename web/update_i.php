@@ -1,17 +1,17 @@
-<?php include('partials/nav_bar.php'); ?>
+<?php include('partials_front/nav_bar.php');?>
 
 <div class="cust_update">
     <div class="container">
-        <h1>Update Corporate Customer</h1>
+        <h1>Update Individual Customer</h1>
 
         <?php
             // Get the a_id
-            $c_id = $_GET['c_id'];
+            $c_email = $_SESSION['cust_login'];
 
             // SQL query 
             $SQL = "SELECT *
                     FROM mvx_customer
-                    WHERE c_id = $c_id";
+                    WHERE c_email = '$c_email'";
 
             // Execute the query
             $RES = mysqli_query($CONN, $SQL);
@@ -38,7 +38,7 @@
 
             // SQL query 
             $SQL2 = "SELECT *
-                    FROM mvx_corporate
+                    FROM mvx_individual
                     WHERE c_id = $c_id";
 
             // Execute the query
@@ -51,9 +51,11 @@
                 if ($COUNT2==1) {
                     $ROWS2 = mysqli_fetch_assoc($RES2);
 
-                    $co_name = $ROWS2['co_name'];
-                    $co_regisno = $ROWS2['co_regisno'];
-                    $co_empid = $ROWS2['co_empid'];
+                    $in_fname = $ROWS2['in_fname'];
+                    $in_lname = $ROWS2['in_lname'];
+                    $in_licenseno = $ROWS2['in_licenseno'];
+                    $in_insurname = $ROWS2['in_insurname'];
+                    $in_insurno = $ROWS2['in_insurno'];
                 }
                 else {
                     header('location:'.SITEURL.'admin/man_cust.php');
@@ -65,16 +67,24 @@
             <table class="table-40">
 
                 <tr>
-                    <td>Corporate Name</td>
-                    <td><input type="text" name="co_name" value="<?php echo $co_name;?>"><td>
+                    <td>First Name</td>
+                    <td><input type="text" name="in_fname" value="<?php echo $in_fname;?>"><td>
                 </tr>
                 <tr>
-                    <td>Registration</td>
-                    <td><input type="text" name="co_regisno" value="<?php echo $co_regisno;?>"><td>
+                    <td>Last Name</td>
+                    <td><input type="text" name="in_lname" value="<?php echo $in_lname;?>"><td>
                 </tr>
                 <tr>
-                    <td>Employee ID</td>
-                    <td><input type="text" name="co_empid" value="<?php echo $co_empid;?>"><td>
+                    <td>License</td>
+                    <td><input type="text" name="in_licenseno" value="<?php echo $in_licenseno;?>"><td>
+                </tr>
+                <tr>
+                    <td>Insurance</td>
+                    <td><input type="text" name="in_insurname" value="<?php echo $in_insurname;?>"><td>
+                </tr>
+                <tr>
+                    <td>Insurance No</td>
+                    <td><input type="number" name="in_insurno" value="<?php echo $in_insurno;?>"><td>
                 </tr>
                 <tr>
                     <td>Address Line 1</td>
@@ -99,7 +109,7 @@
                 <tr>
                     <td colspan="2">
                         <input type ="hidden" name="c_id" value="<?php echo $c_id; ?>">
-                        <input type="submit" name="submit" value="update customer" class="button button-secondary">
+                        <input type="submit" name="submit" value="update customer" class="btn btn-primary">
                     </td>
                 </tr>
 
@@ -115,9 +125,11 @@
         //echo "Button Clicked";
         //Get values inputted from the form
         $c_id = $_POST['c_id'];
-        $co_name = $_POST['co_name'];
-        $co_regisno = $_POST['co_regisno'];
-        $co_empid = $_POST['co_empid'];
+        $in_fname = $_POST['in_fname'];
+        $in_lname = $_POST['in_lname'];
+        $in_licenseno = $_POST['in_licenseno'];
+        $in_insurname = $_POST['in_insurname'];
+        $in_insurno = $_POST['in_insurno'];
         $c_addline1 = $_POST['c_addline1'];
         $c_addline2 = $_POST['c_addline2'];
         $c_zip = $_POST['c_zip'];
@@ -125,10 +137,12 @@
         $c_email = $_POST['c_email'];
 
         //SQL query to update individual
-        $SQL = "UPDATE mvx_corporate
-                SET co_name = '$co_name',
-                    co_regisno = $co_regisno,
-                    co_empid = $co_empid
+        $SQL = "UPDATE mvx_individual
+                SET in_fname = '$in_fname',
+                    in_lname = '$in_lname',
+                    in_licenseno = '$in_licenseno',
+                    in_insurname = '$in_insurname',
+                    in_insurno = $in_insurno
                 WHERE c_id = '$c_id'";
         
         $RES = mysqli_query($CONN,$SQL);
@@ -146,14 +160,14 @@
 
         //Check the query if executed successfully
         if($RES==TRUE && $RES2==TRUE) {
-            $_SESSION['update'] = "Corporate customer updated successfully.";
-            header('location:'.SITEURL.'admin/man_cust.php');
+            $_SESSION['update'] = "Info updated successfully.";
+            header('location:'.SITEURL.'customer.php');
         }
         else {
-            $_SESSION['update'] = "Corporate customer failed to update.";
-            header('location:'.SITEURL.'admin/man_cust.php');
+            $_SESSION['update'] = "Info failed to update.";
+            header('location:'.SITEURL.'customer.php');
         }
     }
 ?>
 
-<?php include('partials/footer.php'); ?>
+<?php include('partials_front/footer.php')?>

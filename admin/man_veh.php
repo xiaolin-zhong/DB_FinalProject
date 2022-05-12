@@ -5,10 +5,6 @@
             <div class="container">
                 <h1>Manage Vehicles</h1>
 
-                <br/><br/>
-                <a href="<?php echo SITEURL;?>admin/veh_add.php" class="button button-primary">Add Vehicle</a>
-                <br/><br/>
-
                 <?php 
                     if(isset($_SESSION['add'])) {
                         echo $_SESSION['add'];
@@ -23,6 +19,10 @@
                         unset($_SESSION['upload']);
                     }
                 ?>
+
+                <br/><br/>
+                <a href="<?php echo SITEURL;?>admin/veh_add.php" class="button button-primary">Add Vehicle</a>
+                <br/><br/>
 
                 <table class="table-full">
                     <tr>

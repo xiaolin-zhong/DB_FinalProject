@@ -1,4 +1,4 @@
-<?php include('partials/nav_bar.php'); ?>
+<?php include('partials_front/nav_bar.php');?>
 
 <div class="cust_update">
     <div class="container">
@@ -6,12 +6,12 @@
 
         <?php
             // Get the a_id
-            $c_id = $_GET['c_id'];
+            $c_email = $_SESSION['cust_login'];
 
             // SQL query 
             $SQL = "SELECT *
                     FROM mvx_customer
-                    WHERE c_id = $c_id";
+                    WHERE c_email = '$c_email'";
 
             // Execute the query
             $RES = mysqli_query($CONN, $SQL);
@@ -99,7 +99,7 @@
                 <tr>
                     <td colspan="2">
                         <input type ="hidden" name="c_id" value="<?php echo $c_id; ?>">
-                        <input type="submit" name="submit" value="update customer" class="button button-secondary">
+                        <input type="submit" name="submit" value="update customer" class="btn btn-primary">
                     </td>
                 </tr>
 
@@ -146,14 +146,14 @@
 
         //Check the query if executed successfully
         if($RES==TRUE && $RES2==TRUE) {
-            $_SESSION['update'] = "Corporate customer updated successfully.";
-            header('location:'.SITEURL.'admin/man_cust.php');
+            $_SESSION['update'] = "Info updated successfully.";
+            header('location:'.SITEURL.'customer.php');
         }
         else {
-            $_SESSION['update'] = "Corporate customer failed to update.";
-            header('location:'.SITEURL.'admin/man_cust.php');
+            $_SESSION['update'] = "Info failed to update.";
+            header('location:'.SITEURL.'customer.php');
         }
     }
 ?>
 
-<?php include('partials/footer.php'); ?>
+<?php include('partials_front/footer.php')?>

@@ -4,10 +4,6 @@
     <div class="man_rent">
             <div class="container">
                 <h1>Manage Rentals</h1>
-
-                <br/><br/>
-                <a href="<?php echo SITEURL;?>admin/rent_add.php" class="button button-primary">Add Rental</a>
-                <br/><br/>
                 
                 <?php 
                     if(isset($_SESSION['add'])) {
@@ -23,6 +19,10 @@
                         unset($_SESSION['upload']);
                     }
                 ?>
+
+                <br/><br/>
+                <a href="<?php echo SITEURL;?>admin/rent_add.php" class="button button-primary">Add Rental</a>
+                <br/><br/>
 
                 <table class="table-full">
                     <tr>

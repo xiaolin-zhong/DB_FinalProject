@@ -77,6 +77,44 @@
                     <td><input type="number" name="r_limitodo" value="<?php echo $r_limitodo;?>"><td>
                 </tr>
                 <tr>
+                    <td>Customer</td>
+                    <td>
+                        <select name="c_id">
+
+                            <?php
+                                ob_start();
+                                //Display vehicle classes from database.
+                                $SQL3 = "SELECT *
+                                        FROM mvx_customer";
+
+                                $RES3 = mysqli_query($CONN, $SQL3);
+
+                                $COUNT3 = mysqli_num_rows($RES3);
+
+                                if($COUNT3>0) {
+                                    //While loop to get the class values
+                                    while($ROW3 = mysqli_fetch_assoc($RES3)) {
+                                        $c_id = $ROW3['c_id'];
+                                        $c_email = $ROW3['c_email'];
+                                        ?>
+                                        
+                                        <option value="<?php echo $c_id;?>">
+                                            <?php echo $c_email;?>
+                                        </option>
+
+                                        <?php
+                                    }
+                                }
+                                else {
+                                    ?>
+                                    <option value="0">None</option>
+                                    <?php
+                                }
+                            ?>
+                        </select>
+                    <td>
+                </tr>
+                <tr>
                     <td colspan="2">
                         <input type ="hidden" name="r_id" value="<?php echo $r_id; ?>">
                         <input type="submit" name="submit" value="update rental" class="button button-secondary">
@@ -88,6 +126,7 @@
 </div>
 
 <?php
+    ob_start();
     //Check whether update button is pressed on
     if(isset($_POST['submit'])) {
         //echo "Button Clicked";
@@ -100,22 +139,24 @@
         $r_startodo = $_POST['r_startodo'];
         $r_endodo = $_POST['r_endodo'];
         $r_limitodo = $_POST['r_limitodo'];
+        $c_id = $_POST['c_id'];
 
         //SQL query to update rental
-        $SQL = "UPDATE mvx_rent
+        $SQL2 = "UPDATE mvx_rent
                 SET r_pickuploc = '$r_pickuploc',
                     r_droploc = '$r_droploc',
                     r_pickupdate = '$r_pickupdate',
                     r_dropdate = '$r_dropdate',
                     r_startodo = $r_startodo,
-                    r_endodo = $r_endodo,
-                    r_limitodo = $r_limitodo
+                    r_endodo = '$r_endodo',
+                    r_limitodo = '$r_limitodo',
+                    c_id = $c_id
                 WHERE r_id = $r_id";
         
-        $RES = mysqli_query($CONN,$SQL);
+        $RES2 = mysqli_query($CONN,$SQL2);
 
         //Check the query if executed successfully
-        if($RES==TRUE) {
+        if($RES2==TRUE) {
             $_SESSION['update'] = "Rental updated successfully.";
             header('location:'.SITEURL.'admin/man_rent.php');
         }

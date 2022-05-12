@@ -34,6 +34,9 @@
 .text-white{
     color: white;
 }
+.text-brown{
+    color: #7f5539;
+}
 
 .clearfix{
     clear: both;
@@ -86,6 +89,23 @@ fieldset{
     border-radius: 5px;
 }
 
+.table-40{
+    width: 40%;
+}
+
+.table-full{
+    width: 100%;
+}
+
+table tr th{
+    border-bottom: 1px solid black;
+    padding: 1%;
+}
+
+table tr td{
+    text-align: center;
+    padding: 1%;
+}
 
 /* CSSS for navbar section */
 
@@ -232,6 +252,7 @@ fieldset{
 
     .food-search{
         padding: 10% 0;
+        background-color: #b08968;
     }
 
     .categories{
