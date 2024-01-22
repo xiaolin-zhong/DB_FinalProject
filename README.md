@@ -1,1 +1,7 @@
-# Spring 2022 CSGY6083_Project
+# Spring 2022 Project
+
+_General Requirement Description:_
+You are tasked to create a web-based UI for the database schema made in the beginning of the project.
+
+_General Business Case:_
+World on Wheels is a car rental company providing services at many locations in United States. For efficient management of the business, we are proposing a database and web application model. The database will include various key attributes of business such as Customer details, Information on rent, Specifications of available vehicles, Address of each office, Available discounts, Customer payment details and Invoices of each order. These attributes are grouped into different entities like Location, Vehicles, Rent, Customers, Discounts, etc. The Web application will help the customers to view the available vehicles for a particular location and then provide the customer with necessary information such as the rent of the vehicle and over mileage fee. Once the customer chooses a vehicle, they will be redirected to the payment page where they can pay the rent and receive an invoice for their order. The web application will also have an admin page where users with admin privilege can update the orders and enter the necessary information like odometer reading at the end of rent, which will determine the over-mileage fee. The admin will also have access to update the information pertaining to any aspects of the web page such as vehicle rent, changes in order, adding new admin or adding new vehicles.
